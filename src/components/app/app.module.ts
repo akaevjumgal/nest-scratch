@@ -4,7 +4,11 @@ import { AppService } from './app.service'
 import { MongooseModule } from '@nestjs/mongoose'
 
 @Module({
-  imports: [MongooseModule.forRoot('mongodb://localhost/nest')],
+  imports: [MongooseModule.forRootAsync({
+    useFactory: () => ({
+      uri: 'mongodb://localhost/nest',
+    }),
+  })],
   controllers: [AppController],
   providers: [AppService],
 })
