@@ -1,4 +1,3 @@
-import { Document } from 'mongoose'
 
 namespace User {
   export class CreateDto {
@@ -11,7 +10,7 @@ namespace User {
     readonly inn: string
   }
 
-  export interface UserDocument extends Document {
+  export interface UserDocument {
     readonly id: string
     readonly firstName: string
     readonly lastName: string
