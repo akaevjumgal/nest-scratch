@@ -15,7 +15,9 @@
     "object-literal-sort-keys": false,
     "semicolon": false,
     "no-namespace": false,
-    "trailing-comma": false
+    "trailing-comma": false,
+    "max-classes-per-file": false,
+    "no-console": false
   },
   "rulesDirectory": []
 }

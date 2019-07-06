@@ -7,7 +7,7 @@
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "format": "prettier --write \"src/**/*.ts\"",
-    "start": "ts-node  -r tsconfig-paths/register src/main.ts",
+    "start": "ts-node src/main",
     "start:dev": "concurrently --handle-input \"wait-on dist/main.js && nodemon\" \"tsc -w -p tsconfig.build.json\" ",
     "start:debug": "nodemon --config nodemon-debug.json",
     "prestart:prod": "rimraf dist && npm run build",
@@ -22,12 +22,17 @@
   "dependencies": {
     "@nestjs/common": "^6.0.0",
     "@nestjs/core": "^6.0.0",
+    "@nestjs/graphql": "^6.2.4",
     "@nestjs/platform-express": "^6.0.0",
     "@nestjs/typeorm": "^6.1.2",
+    "apollo-server-express": "^2.6.7",
+    "graphql": "^14.4.2",
+    "graphql-tools": "^4.0.5",
     "pg": "^7.11.0",
     "reflect-metadata": "^0.1.10",
     "rimraf": "^2.6.2",
     "rxjs": "^6.3.3",
+    "type-graphql": "^0.17.4",
     "typeorm": "0.2.18"
   },
   "devDependencies": {
