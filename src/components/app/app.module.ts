@@ -3,6 +3,7 @@ import { AppService } from './app.service'
 import { TypeOrmModule } from '@nestjs/typeorm'
 import { GraphQLModule } from '@nestjs/graphql'
 import { LoggerMiddleware } from '../../../logger.middleware'
+import { UserModule } from '../user/user.module'
 
 @Module({
   imports: [
@@ -12,6 +13,7 @@ import { LoggerMiddleware } from '../../../logger.middleware'
       typePaths: ['./**/*.graphql']
     }),
     TypeOrmModule.forRoot(),
+    UserModule
   ],
   controllers: [],
   providers: [AppService]
