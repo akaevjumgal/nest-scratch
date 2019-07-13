@@ -1,0 +1,11 @@
+
+// NOTE: ENTITY NAME MUST IN WRITTEN IN LOWER CASE
+export enum ENTITY_NAME {
+    USERS = 'users'
+}
+
+// NOTE: SCHEMA NAME MUST IN WRITTEN IN PASCAL CASE
+export enum SCHEMA_NAME {
+    USER = 'User',
+    USER_INPUT = 'UserInput'
+}

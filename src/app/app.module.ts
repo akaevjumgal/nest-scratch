@@ -2,7 +2,7 @@ import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common'
 import { AppService } from './app.service'
 import { TypeOrmModule } from '@nestjs/typeorm'
 import { GraphQLModule } from '@nestjs/graphql'
-import { LoggerMiddleware } from '../../../logger.middleware'
+import { LoggerMiddleware } from '../../logger.middleware'
 import { UserModule } from '../user/user.module'
 
 @Module({
@@ -10,7 +10,7 @@ import { UserModule } from '../user/user.module'
     GraphQLModule.forRoot({
       debug: false,
       playground: true,
-      typePaths: ['./**/*.graphql']
+      autoSchemaFile: 'schema.gql',
     }),
     TypeOrmModule.forRoot(),
     UserModule

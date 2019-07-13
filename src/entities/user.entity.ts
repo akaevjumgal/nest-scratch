@@ -1,6 +1,7 @@
 import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from 'typeorm'
+import { ENTITY_NAME } from '../common/types'
 
-@Entity()
+@Entity(ENTITY_NAME.USERS)
 export class UserEntity {
 
   @PrimaryGeneratedColumn()

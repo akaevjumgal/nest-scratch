@@ -4,7 +4,7 @@
   "port": 5432,
   "username": "postgres",
   "password": "postgres",
-  "database": "uims",
+  "database": "nest_postgres",
   "synchronize": true,
   "logging": false,
   "entities": [

@@ -1,7 +1,8 @@
 import { Injectable } from '@nestjs/common'
 import { InjectRepository } from '@nestjs/typeorm'
-import { UserEntity } from '../../entities/user.entity'
+import { UserEntity } from '../entities/user.entity'
 import { Repository } from 'typeorm'
+import { UserInput } from './user.gql'
 
 @Injectable()
 export class UserService {
@@ -20,18 +21,18 @@ export class UserService {
     return await this.repository.findOne(id)
   }
 
-  async create(user: UserEntity): Promise<UserEntity> {
-    return await this.repository.save(user)
+  async create(entity: UserInput): Promise<UserEntity> {
+    return await this.repository.save(entity)
   }
 
-  async update(id: number, user: UserEntity): Promise<UserEntity> {
+  async update(id: number, user: UserInput): Promise<UserEntity> {
     const answer = await this.repository.update(id, user)
     const result = await answer
 
     return result.raw
   }
 
-  async destroy(id: number): Promise<number> {
+  async remove(id: number): Promise<number> {
     const answer = await this.repository.delete(id)
 
     return answer.affected
