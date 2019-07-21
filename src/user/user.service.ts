@@ -18,7 +18,12 @@ export class UserService {
   }
 
   async findById(id: number): Promise<UserEntity> {
-    return await this.repository.findOne(id)
+    const result = await this.repository.findOne(id)
+    if (!result) {
+      throw new Error('User not found')
+    }
+
+    return result;
   }
 
   async create(entity: UserInput): Promise<UserEntity> {
@@ -29,13 +34,17 @@ export class UserService {
     const answer = await this.repository.update(id, user)
     const result = await answer
 
-    return result.raw
+    return result.raw;
   }
 
   async remove(id: number): Promise<number> {
     const answer = await this.repository.delete(id)
 
-    return answer.affected
+    if (!answer.affected) {
+      throw new Error(`No such row with id ${id}`)
+    }
+
+    return answer.affected;
   }
 
 }
